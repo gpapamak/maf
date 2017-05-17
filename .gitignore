@@ -1,0 +1,16 @@
+
+# specific files and foders
+.idea/
+
+# python bytecode files
+*.pyc
+*.pyo
+
+# data files
+*.pkl
+*.csv
+*.mat
+
+# text editor's temporary files
+*~
+
