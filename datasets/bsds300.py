@@ -23,7 +23,7 @@ class BSDS300:
     def __init__(self):
 
         # load dataset
-        f = h5py.File(datasets.root + 'datasets/BSDS300/BSDS300.hdf5', 'r')
+        f = h5py.File(datasets.root + 'BSDS300/BSDS300.hdf5', 'r')
 
         self.trn = self.Data(f['train'])
         self.val = self.Data(f['validation'])

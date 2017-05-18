@@ -17,7 +17,7 @@ class GAS:
 
     def __init__(self):
 
-        file = datasets.root + 'datasets/gas/ethylene_CO.pickle'
+        file = datasets.root + 'gas/ethylene_CO.pickle'
         trn, val, tst = load_data_and_clean_and_split(file)
 
         self.trn = self.Data(trn)

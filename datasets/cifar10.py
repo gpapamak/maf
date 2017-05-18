@@ -65,7 +65,7 @@ class CIFAR10:
 
         rng = np.random.RandomState(42)
 
-        path = datasets.root + 'datasets/cifar10/'
+        path = datasets.root + 'cifar10/'
 
         # load train batches
         x = []

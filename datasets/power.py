@@ -35,7 +35,7 @@ class POWER:
 
 
 def load_data():
-    return np.load(datasets.root + 'datasets/power/data.npy')
+    return np.load(datasets.root + 'power/data.npy')
 
 
 def load_data_split_with_noise():
