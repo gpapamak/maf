@@ -59,5 +59,5 @@ The datasets have to be separately downloaded from their public repositories, pr
   http://yann.lecun.com/exdb/mnist/
   
 * CIFAR-10  
-  <a href="https://www.cs.toronto.edu/~kriz/cifar.html">https://www.cs.toronto.edu/~kriz/cifar.html</a>
+  [https://www.cs.toronto.edu/~kriz/cifar.html](https://www.cs.toronto.edu/~kriz/cifar.html)
 
