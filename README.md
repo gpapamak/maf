@@ -2,7 +2,8 @@
 
 Code for reproducing the experiments in the paper:
 
-> G. Papamakarios, T. Pavlakou, and I. Murray. _Masked Autoregressive Flow for Density Estimation_. 2017.
+> G. Papamakarios, T. Pavlakou, and I. Murray. _Masked Autoregressive Flow for Density Estimation_. arXiv:1705.07057, 2017.
+> [[pdf]](https://arxiv.org/pdf/1705.07057.pdf) [[bibtex]](http://homepages.inf.ed.ac.uk/s1459647/bibtex/maf.bib)
 
 ## How to run the code
 
