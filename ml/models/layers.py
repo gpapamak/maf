@@ -18,7 +18,7 @@ class BatchNorm:
 
         # minibatch statistics
         self.m = tt.mean(x, axis=0)
-        self.v = tt.mean(x ** 2, axis=0) - self.m ** 2 + eps
+        self.v = tt.mean((x - self.m) ** 2, axis=0) + eps
 
         # transformation
         x_hat = (x - self.m) / tt.sqrt(self.v)
