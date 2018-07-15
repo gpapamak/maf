@@ -1,6 +1,7 @@
 
 # specific files and foders
 .idea/
+.DS_Store
 
 # python bytecode files
 *.pyc
