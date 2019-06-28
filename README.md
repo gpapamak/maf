@@ -3,7 +3,7 @@
 Code for reproducing the experiments in the paper:
 
 > G. Papamakarios, T. Pavlakou, and I. Murray. _Masked Autoregressive Flow for Density Estimation_. Advances in Neural Information Processing Systems Conference. 2017.
-> [[pdf]](https://arxiv.org/pdf/1705.07057.pdf) [[bibtex]](http://homepages.inf.ed.ac.uk/s1459647/bibtex/maf.bib)
+> [[arXiv]](https://arxiv.org/abs/1705.07057) [[bibtex]](https://gpapamak.github.io/bibtex/maf.bib)
 
 ## How to run the code
 
