@@ -44,7 +44,7 @@ class SGD:
         self.make_update = theano.function(
             inputs=[idx],
             outputs=trn_loss,
-            givens=zip(trn_inputs, [x[idx] for x in trn_data]),
+            givens=list(zip(trn_inputs, [x[idx] for x in trn_data])),
             updates=step.updates(model.parms, grads)
         )
 
@@ -53,7 +53,7 @@ class SGD:
             batch_norm_givens = [(bn.m, bn.bm) for bn in model.bns] + [(bn.v, bn.bv) for bn in model.bns]
             self.set_batch_norm_stats = theano.function(
                 inputs=[],
-                givens=zip(trn_inputs, trn_data),
+                givens=list(zip(trn_inputs, trn_data)),
                 updates=[(bn.bm, bn.m) for bn in model.bns] + [(bn.bv, bn.v) for bn in model.bns]
             )
         else:
@@ -76,7 +76,7 @@ class SGD:
             self.validate = theano.function(
                 inputs=[],
                 outputs=val_loss,
-                givens=zip(val_inputs, val_data) + batch_norm_givens
+                givens=list(zip(val_inputs, val_data)) + batch_norm_givens
             )
 
             # create checkpointer to store best model

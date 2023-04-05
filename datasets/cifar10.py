@@ -21,7 +21,7 @@ class CIFAR10:
 
         def __init__(self, x, l, logit, flip, dequantize, rng):
 
-            D = x.shape[1] / 3                                 # number of pixels
+            D = int(x.shape[1] / 3)                                 # number of pixels
             x = self._dequantize(x, rng) if dequantize else x  # dequantize
             x = self._logit_transform(x) if logit else x       # logit
             x = self._flip_augmentation(x) if flip else x      # flip
@@ -52,7 +52,7 @@ class CIFAR10:
             """
             Augments dataset x with horizontal flips.
             """
-            D = x.shape[1] / 3
+            D = int(x.shape[1] / 3)
             I = int(np.sqrt(D))
             r = x[:,    :D].reshape([-1, I, I])[:, :, ::-1].reshape([-1, D])
             g = x[:, D:2*D].reshape([-1, I, I])[:, :, ::-1].reshape([-1, D])
@@ -85,7 +85,7 @@ class CIFAR10:
 
         # load test batch
         f = open(path + 'test_batch', 'rb')
-        dict = pickle.load(f)
+        dict = pickle.load(f, encoding='latin1')
         x = dict['data']
         l = np.array(dict['labels'])
         f.close()

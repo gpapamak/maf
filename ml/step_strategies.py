@@ -26,7 +26,7 @@ class ConstantStep(StepStrategy):
     def updates(self, parms, grads):
         """No updates to be made; step size is held constant throughout."""
         new_parms = [p - self.step*g for p, g in zip(parms, grads)]
-        return zip(parms, new_parms)
+        return list(zip(parms, new_parms))
 
 
 class LinearDecay(StepStrategy):
@@ -50,7 +50,7 @@ class LinearDecay(StepStrategy):
         step = theano.shared(np.asarray(self.init, dtype=theano.config.floatX), name='step')
         new_step = step - self.init / self.maxiter
         new_parms = [p - step*g for p, g in zip(parms, grads)]
-        return [(step, new_step)] + zip(parms, new_parms)
+        return [(step, new_step)] + list(zip(parms, new_parms))
 
 
 class AdaDelta(StepStrategy):
@@ -76,7 +76,7 @@ class AdaDelta(StepStrategy):
         new_acc_ds = [self.rho * ad + (1-self.rho) * d**2 for d, ad in zip(ds, acc_ds)]
         new_parms = [p - d for p, d in zip(parms, ds)]
 
-        return zip(acc_gs, new_acc_gs) + zip(acc_ds, new_acc_ds) + zip(parms, new_parms)
+        return list(zip(acc_gs, new_acc_gs)) + list(zip(acc_ds, new_acc_ds)) + list(zip(parms, new_parms))
 
 
 class Adam(StepStrategy):
@@ -116,4 +116,4 @@ class Adam(StepStrategy):
 
         new_parms = [p - d for p, d in zip(parms, ds)]
 
-        return zip([bm_t, bv_t], [new_bm_t, new_bv_t]) + zip(acc_m, new_acc_m) + zip(acc_v, new_acc_v) + zip(parms, new_parms)
+        return list(zip([bm_t, bv_t], [new_bm_t, new_bv_t])) + list(zip(acc_m, new_acc_m)) + list(zip(acc_v, new_acc_v)) + list(zip(parms, new_parms))
