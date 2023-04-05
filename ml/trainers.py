@@ -157,9 +157,9 @@ class SGD:
                 # print info
                 if verbose:
                     if self.do_validation:
-                        print 'Epoch = {0:.2f}, train loss = {1}, validation loss = {2}'.format(epoch, trn_loss, val_loss)
+                        print('Epoch = {0:.2f}, train loss = {1}, validation loss = {2}'.format(epoch, trn_loss, val_loss))
                     else:
-                        print 'Epoch = {0:.2f}, train loss = {1}'.format(epoch, trn_loss)
+                        print('Epoch = {0:.2f}, train loss = {1}'.format(epoch, trn_loss))
 
             # check for convergence
             if abs(diff) < tol or iter >= maxiter or patience_left <= 0:

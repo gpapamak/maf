@@ -1,5 +1,3 @@
-from itertools import izip
-
 import numpy as np
 import numpy.random as rng
 import theano
@@ -47,7 +45,7 @@ class MaskedAutoregressiveFlow:
         self.u = self.input
         self.logdet_dudx = 0.0
 
-        for i in xrange(n_mades):
+        for i in range(n_mades):
 
             # create a new made
             made = mades.GaussianMade(n_inputs, n_hiddens, act_fun, input_order, mode, self.u)
@@ -113,7 +111,7 @@ class MaskedAutoregressiveFlow:
 
         if getattr(self, 'batch_norm', False):
 
-            for made, bn in izip(self.mades[::-1], self.bns[::-1]):
+            for made, bn in zip(self.mades[::-1], self.bns[::-1]):
                 x = bn.eval_inv(x)
                 x = made.gen(n_samples, x)
 
@@ -179,7 +177,7 @@ class ConditionalMaskedAutoregressiveFlow:
         self.u = self.y
         self.logdet_dudy = 0.0
 
-        for i in xrange(n_mades):
+        for i in range(n_mades):
 
             # create a new made
             made = mades.ConditionalGaussianMade(n_inputs, n_outputs, n_hiddens, act_fun, output_order, mode, self.input, self.u)
@@ -247,7 +245,7 @@ class ConditionalMaskedAutoregressiveFlow:
 
         if getattr(self, 'batch_norm', False):
 
-            for made, bn in izip(self.mades[::-1], self.bns[::-1]):
+            for made, bn in zip(self.mades[::-1], self.bns[::-1]):
                 y = bn.eval_inv(y)
                 y = made.gen(x, n_samples, y)
 

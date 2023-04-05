@@ -63,7 +63,7 @@ class IndexSubSampler(DataStream):
         new_i = j % self.num_idx
         n = []
 
-        for t in xrange(times):
+        for t in range(times):
             n += self.nn[self.i:]
             random.shuffle(self.nn)
             self.i = 0
@@ -95,7 +95,7 @@ class IndexSubSamplerSeq(DataStream):
         new_i = j % self.num_idx
         n = []
 
-        for t in xrange(times):
+        for t in range(times):
             n += self.nn[self.i:]
             self.i = 0
 

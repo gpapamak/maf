@@ -1,5 +1,3 @@
-from itertools import izip
-
 import numpy as np
 import numpy.random as rng
 import theano
@@ -243,7 +241,7 @@ class RealNVP:
         self.bns = []
         self.parms = []
 
-        for _ in xrange(n_layers):
+        for _ in range(n_layers):
 
             # coupling layer
             layer = CouplingLayer(self.u, mask, n_inputs, n_hiddens, s_act, n_hiddens, t_act)
@@ -301,7 +299,7 @@ class RealNVP:
 
         if getattr(self, 'batch_norm', False):
 
-            for layer, bn in izip(self.layers[::-1], self.bns[::-1]):
+            for layer, bn in zip(self.layers[::-1], self.bns[::-1]):
                 x = bn.eval_inv(x)
                 x = layer.eval_forward(x)
 
@@ -366,7 +364,7 @@ class ConditionalRealNVP:
         self.bns = []
         self.parms = []
 
-        for _ in xrange(n_layers):
+        for _ in range(n_layers):
 
             # coupling layer
             layer = ConditionalCouplingLayer(self.input, self.u, mask, n_inputs, n_outputs, n_hiddens, s_act, n_hiddens, t_act)
@@ -427,7 +425,7 @@ class ConditionalRealNVP:
 
         if getattr(self, 'batch_norm', False):
 
-            for layer, bn in izip(self.layers[::-1], self.bns[::-1]):
+            for layer, bn in zip(self.layers[::-1], self.bns[::-1]):
                 y = bn.eval_inv(y)
                 y = layer.eval_forward(xx, y)
 
