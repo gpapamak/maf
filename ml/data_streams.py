@@ -49,7 +49,7 @@ class IndexSubSampler(DataStream):
         assert isinstance(num_idx, int) and num_idx > 0, 'Number of indices must be a positive integer.'
 
         self.num_idx = num_idx
-        self.nn = range(num_idx)
+        self.nn = list(range(num_idx))
         random.shuffle(self.nn)
         self.i = 0
 
