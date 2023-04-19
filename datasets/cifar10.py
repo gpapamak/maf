@@ -21,7 +21,7 @@ class CIFAR10:
 
         def __init__(self, x, l, logit, flip, dequantize, rng):
 
-            D = int(x.shape[1] / 3)                                 # number of pixels
+            D = int(x.shape[1] / 3)                            # number of pixels
             x = self._dequantize(x, rng) if dequantize else x  # dequantize
             x = self._logit_transform(x) if logit else x       # logit
             x = self._flip_augmentation(x) if flip else x      # flip

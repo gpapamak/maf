@@ -5,10 +5,6 @@ Code for reproducing the experiments in the paper:
 > G. Papamakarios, T. Pavlakou, I. Murray, _Masked Autoregressive Flow for Density Estimation_, NeurIPS 2017.</br>
 > [[arXiv]](https://arxiv.org/abs/1705.07057) [[bibtex]](https://gpapamak.github.io/bibtex/maf.bib)
 
-## MAF version updates to used with python `3.6.7`
-
-The original repository has been updated to be able to run with Python 3.6.7. The necessary changes have been made to run with Python 3.6.7, but the libraries being used have not been changed. Only the necessary syntax changes have been upgraded and modified.
-
 ## How to run the code
 
 To run all experiments for a particular dataset, run:
