@@ -104,12 +104,12 @@ class FeedforwardNet:
     def printInfo(self):
         """Prints some useful info about the net."""
 
-        print 'Number of inputs  =', self.n_inputs
-        print 'Number of outputs =', self.n_outputs
-        print 'Number of units   =', self.n_units
-        print 'Number of layers  =', self.n_layers
-        print 'Number of params  =', self.n_params
-        print 'Data type =', dtype
+        print('Number of inputs  =', self.n_inputs)
+        print('Number of outputs =', self.n_outputs)
+        print('Number of units   =', self.n_units)
+        print('Number of layers  =', self.n_layers)
+        print('Number of params  =', self.n_params)
+        print('Data type =', dtype)
 
 
     def visualize_weights(self, layer, imsize, layout):
@@ -134,7 +134,7 @@ class FeedforwardNet:
         """
 
         if layers is None:
-            layers = xrange(self.n_layers)
+            layers = range(self.n_layers)
 
         forwprop = theano.function(
             inputs=[self.hs[0]],
@@ -162,7 +162,7 @@ class FeedforwardNet:
         """
 
         if layers is None:
-            layers = xrange(self.n_layers)
+            layers = range(self.n_layers)
 
         for l in layers:
 

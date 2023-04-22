@@ -1,6 +1,6 @@
 import numpy as np
 import gzip
-import cPickle as pickle
+import _pickle as pickle
 import matplotlib.pyplot as plt
 
 import datasets

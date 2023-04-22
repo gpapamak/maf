@@ -310,23 +310,23 @@ def evaluate(model, split, n_samples=None):
 
         # calculate log probability
         logprobs = model.eval([data_split.y, data_split.x])
-        print 'logprob(x|y) = {0:.2f} +/- {1:.2f}'.format(logprobs.mean(), 2 * logprobs.std() / np.sqrt(data_split.N))
+        print('logprob(x|y) = {0:.2f} +/- {1:.2f}'.format(logprobs.mean(), 2 * logprobs.std() / np.sqrt(data_split.N)))
 
         # classify test set
         logprobs = np.empty([data_split.N, data.n_labels])
-        for i in xrange(data.n_labels):
+        for i in range(data.n_labels):
             y = np.zeros([data_split.N, data.n_labels])
             y[:, i] = 1
             logprobs[:, i] = model.eval([y, data_split.x])
         predict_label = np.argmax(logprobs, axis=1)
         accuracy = (predict_label == data_split.labels).astype(float)
         logprobs = scipy.misc.logsumexp(logprobs, axis=1) - np.log(logprobs.shape[1])
-        print 'logprob(x) = {0:.2f} +/- {1:.2f}'.format(logprobs.mean(), 2 * logprobs.std() / np.sqrt(data_split.N))
-        print 'classification accuracy = {0:.2%} +/- {1:.2%}'.format(accuracy.mean(), 2 * accuracy.std() / np.sqrt(data_split.N))
+        print('logprob(x) = {0:.2f} +/- {1:.2f}'.format(logprobs.mean(), 2 * logprobs.std() / np.sqrt(data_split.N)))
+        print('classification accuracy = {0:.2%} +/- {1:.2%}'.format(accuracy.mean(), 2 * accuracy.std() / np.sqrt(data_split.N)))
 
         # generate data conditioned on label
         if n_samples is not None:
-            for i in xrange(data.n_labels):
+            for i in range(data.n_labels):
 
                 # generate samples and sort according to log prob
                 y = np.zeros(data.n_labels)
@@ -360,7 +360,7 @@ def evaluate(model, split, n_samples=None):
 
         # calculate average log probability
         logprobs = model.eval(data_split.x)
-        print 'logprob(x) = {0:.2f} +/- {1:.2f}'.format(logprobs.mean(), 2 * logprobs.std() / np.sqrt(data_split.N))
+        print('logprob(x) = {0:.2f} +/- {1:.2f}'.format(logprobs.mean(), 2 * logprobs.std() / np.sqrt(data_split.N)))
 
         # generate data
         if n_samples is not None:
@@ -416,7 +416,7 @@ def evaluate_logprob(model, split, use_image_space=False, return_avg=True, batch
 
         logprobs = np.empty([data_split.N, data.n_labels])
 
-        for i in xrange(data.n_labels):
+        for i in range(data.n_labels):
 
             # create labels
             y = np.zeros([data_split.N, data.n_labels])
@@ -484,7 +484,7 @@ def evaluate_random_numbers(model, split, n_marginals=5):
     # estimate kl to unit gaussian
     q = pdfs.fit_gaussian(u)
     p = pdfs.Gaussian(m=np.zeros(data.n_dims), S=np.eye(data.n_dims))
-    print 'KL(q||p) = {0:.2f}'.format(q.kl(p))
+    print('KL(q||p) = {0:.2f}'.format(q.kl(p)))
 
     # plot some marginals
     util.plot_hist_marginals(u[:, :n_marginals])
@@ -510,7 +510,7 @@ def fit_and_evaluate_gaussian(split, cond=False, use_image_space=False, return_a
 
     if cond:
         comps = []
-        for i in xrange(data.n_labels):
+        for i in range(data.n_labels):
             idx = data.trn.labels == i
             comp = pdfs.fit_gaussian(data.trn.x[idx])
             comps.append(comp)
