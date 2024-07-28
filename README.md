@@ -39,6 +39,8 @@ python collect_results.py mnist cifar10
 
 ## How to get the datasets
 
+**UPDATE (July 2024): Due to API changes in pandas, this repository no longer works with the GAS and HEPMASS datasets. Instead, you can use the fork in [francois-rozet/uci-datasets](https://github.com/francois-rozet/uci-datasets), kindly provided by @francois-rozet. See [this issue](https://github.com/gpapamak/maf/issues/13) for more details.**
+
 1. Downdload the datasets from: https://zenodo.org/record/1161203#.Wmtf_XVl8eN
 2. Unpack the downloaded file, and place it in the same folder as the code.
 3. Make sure the code reads from the location the datasets are saved at.
